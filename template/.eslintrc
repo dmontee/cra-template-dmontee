@@ -1,15 +1,17 @@
 {
     "env": {
         "browser": true,
+        "jest": true,
         "es6": true
     },
-    "extends": ["airbnb-base", "prettier", "prettier/react"],
-    "plugins": ["react-hooks", "prettier"],
+    "extends": ["airbnb", "airbnb/hooks", "prettier", "prettier/react"],
+
     "rules": {
         "consistent-return": "warn",
         "no-plusplus": "off",
         "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn"
+        "react-hooks/exhaustive-deps": "warn",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     },
     "globals": {
         "Atomics": "readonly",
