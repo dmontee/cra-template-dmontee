@@ -1,0 +1,20 @@
+{
+  "name": "cra-template-dmontee",
+  "version": "1.0.0",
+  "description": "My personal Create React App template.",
+  "keywords": [
+    "create-react-app",
+    "react",
+    "template"
+  ],
+  "main": "template.json",
+  "scripts": {
+    "test": "echo \"no tests\""
+  },
+  "author": "dmontee",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dmontee/cra-template-dmontee"
+  }
+}
