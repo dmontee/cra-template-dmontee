@@ -1,0 +1,8 @@
+{
+    "workbench.settings.editor": "json",
+    "editor.formatOnSave": true,
+    "javascript.format.enable": false,
+    "eslint.packageManager": "yarn",
+    "eslint.validate": ["javascript", "javascriptreact"],
+    "eslint.workingDirectories": [{ "mode": "auto" }]
+}
