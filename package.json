@@ -1,6 +1,6 @@
 {
   "name": "cra-template-dmontee",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "My personal Create React App template.",
   "keywords": [
     "create-react-app",
@@ -16,5 +16,15 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/dmontee/cra-template-dmontee"
+  },
+  "bugs": {
+    "url": "https://github.com/reduxjs/cra-template-redux/issues"
+  },
+  "files": [
+    "template",
+    "template.json"
+  ],
+  "engines": {
+    "node": ">=10"
   }
 }
