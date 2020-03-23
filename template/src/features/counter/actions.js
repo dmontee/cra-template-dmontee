@@ -1,9 +1,9 @@
 import { action } from "typesafe-actions";
 
 export const types = {
-    ADD: "@counter/ADD",
+    INCREMENT: "@counter/INCREMENT",
 };
 
-const add = () => action(types.ADD);
+const increment = () => action(types.INCREMENT);
 
-export const actions = { add };
+export const actions = { increment };

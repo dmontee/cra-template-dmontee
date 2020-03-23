@@ -9,7 +9,7 @@ export default function useCount() {
 
     const api = useMemo(
         () => ({
-            add: () => dispatch(actions.add()),
+            increment: () => dispatch(actions.increment()),
         }),
         [dispatch]
     );

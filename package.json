@@ -1,7 +1,7 @@
 {
   "name": "cra-template-dmontee",
   "version": "1.0.1",
-  "description": "My personal Create React App template.",
+  "description": "My personal Create React App template with eslint, prettier, redux and tailwindcss.",
   "keywords": [
     "create-react-app",
     "react",
