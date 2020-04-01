@@ -1,6 +1,8 @@
 /* purgecss start ignore */
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
+
 /* purgecss end ignore */
 
 @import "tailwindcss/utilities";
@@ -12,9 +14,19 @@ body {
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: theme("colors.primary");
 }
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
+}
+
+.dark-theme body {
+    background-color: theme("colors.dark");
+    color: theme("colors.darkFont");
+}
+
+.btn {
+    @apply py-2 px-4 rounded;
 }

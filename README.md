@@ -13,6 +13,7 @@ npx create-react-app my-app --template dmontee
 - [prettier][prettier]
 - [react-testing-library][react-testing-library]
 - [redux][redux]
+- [stylelint][stylelint]
 - [tailwindcss][tailwindcss]
 
 ## Features
@@ -23,6 +24,8 @@ npx create-react-app my-app --template dmontee
 - Redux and Redux Thunk
 - React hooks linting and testing
 - Styling with tailwindcss
+- Stylelint configuration that's compatible with tailwind
+- Basic dark theme support
 
 ## License
 
@@ -43,4 +46,5 @@ Licensed under the MIT license.
 [prettier]: https://prettier.io/docs/en/index.html
 [tailwindcss]: https://tailwindcss.com/
 [redux]: https://github.com/reduxjs/redux
+[stylelint]: https://github.com/stylelint/stylelint
 <!-- prettier-ignore-end -->
