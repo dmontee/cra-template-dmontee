@@ -6,7 +6,7 @@ import logo from "../../logo.svg";
 
 export default function Home() {
     const [count, { increment }] = useCount();
-    const [, { toggleTheme }] = useTheme();
+    const [, { toggle }] = useTheme();
     return (
         <div className="App">
             <header className="App-header">
@@ -19,7 +19,7 @@ export default function Home() {
                     {count}
                 </p>
                 <div>
-                    <button type="button" onClick={toggleTheme}>
+                    <button type="button" onClick={toggle}>
                         Toggle Theme
                     </button>
                 </div>
