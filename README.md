@@ -12,7 +12,7 @@ npx create-react-app my-app --template dmontee
 - [eslint][eslint]
 - [prettier][prettier]
 - [react-testing-library][react-testing-library]
-- [redux][redux]
+- [recoil][recoil]
 - [stylelint][stylelint]
 - [tailwindcss][tailwindcss]
 
@@ -21,7 +21,7 @@ npx create-react-app my-app --template dmontee
 - VS Code support
 - Async data fetching with axios
 - Eslint configuration that's compatible with prettier
-- Redux and Redux Thunk
+- Recoil for app manangement
 - React hooks linting and testing
 - Styling with tailwindcss
 - Stylelint configuration that's compatible with tailwind
@@ -45,6 +45,6 @@ Licensed under the MIT license.
 [eslint]: https://eslint.org/
 [prettier]: https://prettier.io/docs/en/index.html
 [tailwindcss]: https://tailwindcss.com/
-[redux]: https://github.com/reduxjs/redux
+[recoil]: https://recoiljs.org/
 [stylelint]: https://github.com/stylelint/stylelint
 <!-- prettier-ignore-end -->

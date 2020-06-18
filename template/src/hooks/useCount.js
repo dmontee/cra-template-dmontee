@@ -1,18 +1,24 @@
 import { useMemo } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { atom, useRecoilState } from "recoil";
 
-import { actions } from "../features/counter/actions";
+const COUNTER_KEY = "counterState";
+
+const counterState = atom({
+    key: COUNTER_KEY,
+    default: 0,
+});
 
 export default function useCount() {
-    const count = useSelector((state) => state.counter);
-    const dispatch = useDispatch();
+    const [count, setCount] = useRecoilState(counterState);
 
     const api = useMemo(
         () => ({
-            increment: () => dispatch(actions.increment()),
+            increment: () => setCount((prev) => prev + 1),
         }),
-        [dispatch]
+        [setCount]
     );
 
     return [count, api];
 }
+
+export { COUNTER_KEY as key, counterState as state };
