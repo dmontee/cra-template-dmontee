@@ -19,7 +19,7 @@
       "eslint-plugin-react-hooks": "^2.5.1",
       "prettier": "^2.0.1",
       "react-test-renderer": "^16.9.0",
-      "recoil": "^0.0.8",
+      "recoil": "^0.0.9",
       "stylelint-config-standard": "^20.0.0",
       "tailwindcss": "^1.2.0",
       "typesafe-actions": "^5.1.0"

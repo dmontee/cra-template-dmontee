@@ -30,3 +30,7 @@ code {
 .btn {
     @apply py-2 px-4 rounded;
 }
+
+.todo-btn {
+    @apply mx-2 rounded-lg border border-2 border-blue-500 py-2 px-4;
+}

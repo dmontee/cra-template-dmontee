@@ -6,8 +6,7 @@
     "create-react-app",
     "react",
     "template",
-    "recoil",
-    "recoiljs"
+    "recoil"
   ],
   "main": "template.json",
   "scripts": {

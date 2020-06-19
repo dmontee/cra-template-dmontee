@@ -1,0 +1,4 @@
+# Files and folder to ignore after ejecting
+src/serviceWorker.js
+config/
+scripts/
