@@ -51,17 +51,20 @@ export default function useCount() {
                     ...prev,
                     createTodo(text, prev.length, prev),
                 ]),
-            remove: (index) =>
-                setTodoList((prev) => [
-                    ...prev.slice(0, index),
-                    ...prev.slice(index + 1),
-                ]),
-            complete: (index) =>
-                setTodoList((prev) => [
-                    ...prev.slice(0, index),
-                    { ...prev[index], completed: true },
-                    ...prev.slice(index + 1),
-                ]),
+            remove: (id) =>
+                setTodoList((prev) => {
+                    const index = prev.findIndex((x) => x.id === id);
+                    return [...prev.slice(0, index), ...prev.slice(index + 1)];
+                }),
+            complete: (id) =>
+                setTodoList((prev) => {
+                    const index = prev.findIndex((x) => x.id === id);
+                    return [
+                        ...prev.slice(0, index),
+                        { ...prev[index], completed: true },
+                        ...prev.slice(index + 1),
+                    ];
+                }),
 
             // Update filter list state
             showComplete: () => setTodoFilterState(TODO_LIST_FILTERS[1]),

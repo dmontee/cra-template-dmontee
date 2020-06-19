@@ -71,14 +71,14 @@ export default function Home() {
                             Add
                         </button>
                     </div>
-                    {todoList.map((x, i) => (
+                    {todoList.map((x) => (
                         <p key={x.id} className="flex ml-2">
                             {!x.completed && (
                                 <button
                                     type="button"
                                     className="mr-5 text-green-500"
                                     title="Complete"
-                                    onClick={() => todoListApi.complete(i)}
+                                    onClick={() => todoListApi.complete(x.id)}
                                 >
                                     {"\u2713"}
                                 </button>
@@ -87,7 +87,7 @@ export default function Home() {
                                 type="button"
                                 className="mr-5 text-red-500"
                                 title="Remove"
-                                onClick={() => todoListApi.remove(i)}
+                                onClick={() => todoListApi.remove(x.id)}
                             >
                                 -
                             </button>
