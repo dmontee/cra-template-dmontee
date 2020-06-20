@@ -1,80 +1,67 @@
-import { useMemo } from "react";
-import { atom, selector, useSetRecoilState, useRecoilValue } from "recoil";
+import { useMemo, useCallback } from "react";
+import { useSetRecoilState, useRecoilValue } from "recoil";
 
-const TODO_LIST_KEY = "todoListState";
-
-const todoListState = atom({
-    key: TODO_LIST_KEY,
-    default: [],
-});
-
-const TODO_LIST_FILTER_KEY = "todoListFilterState";
-const TODO_LIST_FILTERS = ["Show All", "Show Completed", "Show Incomplete"];
-
-const todoListFilterState = atom({
-    key: TODO_LIST_FILTER_KEY,
-    default: TODO_LIST_FILTERS[0],
-});
-
-const TODO_SELECTOR_KEY = "filteredTodoSelector";
-
-const filteredTodoListState = selector({
-    key: TODO_SELECTOR_KEY,
-    get: ({ get }) => {
-        const filter = get(todoListFilterState);
-        const list = get(todoListState);
-
-        switch (filter) {
-            case TODO_LIST_FILTERS[1]:
-                return list.filter((x) => x.completed);
-            case TODO_LIST_FILTERS[2]:
-                return list.filter((x) => !x.completed);
-            default:
-                return list;
-        }
-    },
-});
+import {
+    todoListState,
+    todoListFilterState,
+    TODO_LIST_FILTERS,
+} from "../features/todos/atoms";
+import { filteredTodoListState } from "../features/todos/selectors";
 
 function createTodo(text) {
-    return { text, id: Math.random() * 10000, completed: false };
+    return { text, id: Math.round(Math.random() * 10000), completed: false };
 }
 
-export default function useCount() {
+export default function useTodoList() {
     const setTodoList = useSetRecoilState(todoListState);
     const setTodoFilterState = useSetRecoilState(todoListFilterState);
     const todoList = useRecoilValue(filteredTodoListState);
 
+    const add = useCallback(
+        (text) => {
+            setTodoList((prev) => [
+                ...prev,
+                createTodo(text, prev.length, prev),
+            ]);
+        },
+        [setTodoList]
+    );
+
+    const remove = useCallback(
+        (id) => {
+            setTodoList((prev) => {
+                const index = prev.findIndex((x) => x.id === id);
+                return [...prev.slice(0, index), ...prev.slice(index + 1)];
+            });
+        },
+        [setTodoList]
+    );
+
+    const complete = useCallback(
+        (id) => {
+            setTodoList((prev) => {
+                const index = prev.findIndex((x) => x.id === id);
+                return [
+                    ...prev.slice(0, index),
+                    { ...prev[index], completed: true },
+                    ...prev.slice(index + 1),
+                ];
+            });
+        },
+        [setTodoList]
+    );
+
     const api = useMemo(
         () => ({
-            add: (text) =>
-                setTodoList((prev) => [
-                    ...prev,
-                    createTodo(text, prev.length, prev),
-                ]),
-            remove: (id) =>
-                setTodoList((prev) => {
-                    const index = prev.findIndex((x) => x.id === id);
-                    return [...prev.slice(0, index), ...prev.slice(index + 1)];
-                }),
-            complete: (id) =>
-                setTodoList((prev) => {
-                    const index = prev.findIndex((x) => x.id === id);
-                    return [
-                        ...prev.slice(0, index),
-                        { ...prev[index], completed: true },
-                        ...prev.slice(index + 1),
-                    ];
-                }),
-
-            // Update filter list state
+            add,
+            remove,
+            complete,
             showComplete: () => setTodoFilterState(TODO_LIST_FILTERS[1]),
             showIncomplete: () => setTodoFilterState(TODO_LIST_FILTERS[2]),
             showAll: () => setTodoFilterState(TODO_LIST_FILTERS[0]),
         }),
-        [setTodoList, setTodoFilterState]
+        [setTodoFilterState, add, remove, complete]
     );
 
     return [todoList, api];
 }
-
-export { TODO_LIST_KEY as key, todoListState as state };

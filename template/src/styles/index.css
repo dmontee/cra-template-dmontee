@@ -28,9 +28,13 @@ code {
 }
 
 .btn {
-    @apply py-2 px-4 rounded;
+    @apply mx-2 rounded-lg py-2 px-4;
 }
 
 .todo-btn {
-    @apply mx-2 rounded-lg border border-2 border-blue-500 py-2 px-4;
+    width: 200px;
+}
+
+.todo-btn--selected {
+    @apply bg-blue-700;
 }

@@ -1,17 +1,21 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 
-import Store from "../../app/Store";
 import Home from "./Home";
+import Root from "../../Root";
 
 describe("<Home />", () => {
-    test("Should have add button", () => {
-        const { getByText } = render(
-            <Store>
+    test("Adding todo works", () => {
+        const { getByText, getByPlaceholderText } = render(
+            <Root>
                 <Home />
-            </Store>
+            </Root>
         );
 
-        expect(getByText(/Add/i)).toBeInTheDocument();
+        fireEvent.input(getByPlaceholderText("Enter TODO"), {
+            target: { value: "Fake TODO" },
+        });
+        fireEvent.click(getByText(/Add/i));
+        expect(getByText(/Fake TODO/i)).toBeInTheDocument();
     });
 });

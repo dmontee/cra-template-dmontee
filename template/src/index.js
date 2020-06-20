@@ -1,17 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { RecoilRoot } from "recoil";
 
 import App from "./App";
+import Root from "./Root";
 import * as serviceWorker from "./serviceWorker";
 
 import "./styles/index.css";
 
 ReactDOM.render(
     <React.StrictMode>
-        <RecoilRoot>
+        <Root>
             <App />
-        </RecoilRoot>
+        </Root>
     </React.StrictMode>,
     document.getElementById("root")
 );

@@ -14,7 +14,6 @@
 }
 
 .App-header {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,6 +23,17 @@
 
 .App-link {
     color: rgb(112, 76, 182);
+}
+
+.App-content {
+    font-size: calc(10px + 2vmin);
+}
+
+.App-content > div,
+.App-content > h2 {
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @keyframes App-logo-float {
