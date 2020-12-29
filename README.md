@@ -27,6 +27,12 @@ npx create-react-app my-app --template dmontee
 - Stylelint configuration that's compatible with tailwind
 - Basic dark theme support
 
+## Testing Locally
+
+```
+npx create-react-app . --template file:../path/to/your/template/cra-template-[template-name]
+```
+
 ## License
 
 Licensed under the MIT license.
